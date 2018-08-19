@@ -1,0 +1,69 @@
+﻿@model IEnumerable<VacationFormPractice.Models.TravelerProfile>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Travel Agent Queue</h2>
+
+<p>
+    <a asp-action="Create">Traveler Requests</a>
+</p>
+<table class="table">
+    <!--To ADD A NEW COLUMN: (1) Add a new <th>, (2) Add a new <tr>, (3) Update the Create([Bind("id,FirstName,LastName,DreamDestination,email,phoneNumber,budget")] TravelerProfile travelerProfile)-->
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DreamDestination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.budget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DreamDestination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phoneNumber)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

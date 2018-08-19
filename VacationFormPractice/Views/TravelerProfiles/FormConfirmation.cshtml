@@ -1,0 +1,27 @@
+﻿
+
+@model IEnumerable<TravelerProfile>
+
+@{
+    ViewData["Title"] = "FormConfirmation";
+}
+
+<h2>Form Confirmation</h2>
+
+<form method="post" asp-controller="TravelerProfiles" asp-action="Index">
+
+    @foreach (var item in Model)
+    {
+        <input type="text" name="fname" value="@item.FirstName" />
+        <input type="text" name="lname" value="@item.LastName" />
+        <input type="text" name="destination" value="@item.DreamDestination" />
+        <input type="text" name="Email" value="@item.email" />
+        <input type="number" name="Budget" value="@item.budget" />
+        <input type="number" name="phone" value="@item.phoneNumber" />
+    }
+
+    <input type="submit" />
+
+</form>
+
+

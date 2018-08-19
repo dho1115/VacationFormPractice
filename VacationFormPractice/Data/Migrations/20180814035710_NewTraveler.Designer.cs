@@ -11,9 +11,10 @@ using VacationFormPractice.Data;
 namespace VacationFormPractice.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180814035710_NewTraveler")]
+    partial class NewTraveler
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -192,47 +193,9 @@ namespace VacationFormPractice.Data.Migrations
 
                     b.Property<decimal>("budget");
 
-                    b.Property<string>("email");
-
-                    b.Property<int?>("phoneNumber");
-
                     b.HasKey("id");
 
                     b.ToTable("travelerProfiles");
-                });
-
-            modelBuilder.Entity("VacationFormPractice.Models.VacationCategory", b =>
-                {
-                    b.Property<int>("CategoryID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Country");
-
-                    b.Property<DateTime>("DateEntered");
-
-                    b.HasKey("CategoryID");
-
-                    b.ToTable("VacationCategory");
-                });
-
-            modelBuilder.Entity("VacationFormPractice.Models.VacationPlaces", b =>
-                {
-                    b.Property<int>("DestinationID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Attractions");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int?>("VacationCategoryNameCategoryID");
-
-                    b.Property<DateTime?>("datetime");
-
-                    b.HasKey("DestinationID");
-
-                    b.HasIndex("VacationCategoryNameCategoryID");
-
-                    b.ToTable("VacationPlaces");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -278,13 +241,6 @@ namespace VacationFormPractice.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("VacationFormPractice.Models.VacationPlaces", b =>
-                {
-                    b.HasOne("VacationFormPractice.Models.VacationCategory", "VacationCategoryName")
-                        .WithMany("VacationPlaces")
-                        .HasForeignKey("VacationCategoryNameCategoryID");
                 });
 #pragma warning restore 612, 618
         }

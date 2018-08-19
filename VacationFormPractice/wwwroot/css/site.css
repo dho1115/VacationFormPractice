@@ -1,4 +1,26 @@
-﻿body {
+﻿
+
+.HongKong {
+    background-image: url("../images/HongKong.jpg");
+}
+
+.Iceland {
+    background-image: url('../images/Iceland.jpg');
+} 
+
+.Banff {
+    background-image: url("../images/Banff.jpg");
+} 
+
+.red {
+    background-color: red;
+} 
+
+.yellow {
+    background-color: yellow;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -32,4 +54,8 @@
     .carousel-caption {
         display: none;
     }
+}
+
+.SouthBeach {
+    background-image: url("../images/SouthBeach.jpg");
 }

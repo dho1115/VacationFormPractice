@@ -5,13 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VacationFormPractice.Models;
+using VacationFormPractice.Data;
 
 namespace VacationFormPractice.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
+        {     
             return View();
         }
 

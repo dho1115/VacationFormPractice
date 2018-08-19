@@ -10,17 +10,21 @@ namespace VacationFormPractice.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<TravelerProfile> travelerProfiles { get; set; } //NOTE: This will be the name of our table. Also, this table name will be used in TravelerProfiles later on when we do our Linq queries (e.g. when we add new data in the CREATE method).       
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            var tolist = VacationCategory.Include("VacationPlaces").ToList();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
+        {            
+            base.OnModelCreating(builder);            
         }
+
+        public DbSet<VacationFormPractice.Models.VacationPlaces> VacationPlaces { get; set; }
+
+        public DbSet<VacationFormPractice.Models.VacationCategory> VacationCategory { get; set; }
     }
 }
